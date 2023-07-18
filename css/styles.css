@@ -1,5 +1,27 @@
 /* GLOBAL STYLES */
 
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/roboto-v30-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* roboto-700 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  src: url('../fonts/roboto-v30-latin-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+:root {
+  --accent-color:#c9514c;
+  --primary-text:#333;
+}
+
+
 html {
   height: 100%;
   box-sizing: border-box;
@@ -12,13 +34,18 @@ html {
   box-sizing:inherit;
 }
 
+*:focus {
+  outline: 2px dashed var(--accent-color);
+  outline-offset: 3px;
+}
+
 body {
   display: flex;
   flex-direction: column;
   height: 100%;
   padding: 0;
   margin: 0;
-  font-family: "Arial", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 16px;
   line-height: 1.5;
   background-color: #fff;
@@ -34,15 +61,244 @@ img {
 
 .container {
   width: 100%;
-  max-width: 1200;
+  max-width: 1250px;
   padding-left: 50px;
   padding-right: 50px;
   margin-left: auto;
   margin-right: auto;
 }
+/* BUTTON */
+
+.button {
+  display: inline-block;
+  padding: 12px 38px;
+  border:0;
+  background-color: #c9514c;
+  color: #fff;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+
+}
+
+.button:hover {
+  background-color:#ea625c;
+}
+
+.button:active {
+  opacity: 0.6;
+}
+
+.buy-button {
+  padding: 12px 28px;
+}
+
+
 
 /* MAIN-CONTENT */
 
 .main-content {
   flex-grow: 1;
+}
+
+
+/* SITE HEADER */
+.site-header {
+  padding-top: 30px;
+  padding-bottom: 80px;
+
+}
+
+.site-header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+}
+
+
+.site-header-img {
+  width: 35px;
+  height: 42px;
+  color:var(--primary-text);
+}
+.site-header-items {
+  display: flex;
+  align-items: flex-start;
+  list-style: none;
+  margin-left: auto;
+
+}
+.site-header-item:not(:last-child) {
+  margin-right: 30px;
+}
+
+
+.site-header-item-link {
+  margin-top: 0;
+  margin-bottom: 6px;
+  color:var(--primary-text);
+  text-align: center;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 22.5px;
+  text-decoration: none;
+}
+
+
+.site-header-survey {
+  margin-left: 40px;
+
+}
+.site-header-survey-text {
+  margin-bottom: 6px;
+  color: #666;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 22.5px;
+}
+
+.line-survey {
+  display: block;
+  margin: 0;
+  width: 153px;
+  height: 1px;
+  background-color: var(--primary-text);
+}
+
+
+/* MAIN CONTENT */
+
+/* HERO SECTION */
+.hero {
+  padding-top: 140px;
+  padding-bottom: 185px;
+  border-bottom: 2px solid #ddd;
+  background-color: #fff;
+  background-image: url(../img/intro-bg.jpg);
+  background-repeat: no-repeat;
+  background-position: left calc(50% + 550px) bottom;
+
+}
+
+/* LEAD-CTA */
+.lead-cta {
+  width: 100%;
+  max-width: 490px;
+}
+.lead-cta-heading {
+  margin-top: 0;
+  margin-bottom: 30px;
+  font-size: 50px;
+  line-height: 1.2;
+  color: #000;
+
+
+}
+.lead-cta-text {
+  padding-left: 37px;
+  border-left:3px solid #888;
+  margin-top: 0;
+  margin-bottom: 30px;
+  color: #777;
+
+}
+
+
+/* FEATURES-SECTION */
+
+.features-section {
+  padding: 70px;
+}
+.features-items {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.features-item {
+  width: 100%;
+  max-width: 280px;
+}
+
+.features-item:not(:last-child) {
+  margin-right: 80px;
+}
+.features-item-title {
+  margin-top: 0;
+  margin-bottom: 30px;
+  color: #222;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 27px;
+  text-transform: uppercase;
+
+}
+.features-item-text {
+  margin-top: 0;
+  margin-bottom: 20px;
+  color: var(--primary-text);
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.rectangle-img {
+  margin-right: 10px;
+}
+.features-link {
+  display: flex;
+  align-items:center;
+  color: #ea625c;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 25.6px;
+  text-transform: uppercase;
+  text-decoration: none;
+
+}
+
+.link-line {
+  margin-right: 10px;
+}
+
+
+/* BLOG-SECTION */
+
+.blog-section {
+  padding: 70px;
+
+}
+
+.blog-container {
+  display: flex;
+
+}
+
+.lead-blog {
+  margin-right: 250px;
+}
+
+/* FOOTER SECTION */
+
+.footer-section {
+  background-image: url(../img/runners\ 1.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.lead-footer {
+  padding: 240px 125px 240px 635px;
+}
+
+.lead-footer-heading {
+  color: #fff;
+}
+
+.lead-footer-text {
+  border-left:3px solid #fff;
+  color: #fff;
 }
